@@ -1,4 +1,5 @@
 alembic==1.8.0
+anyio==3.6.1
 beautifulsoup4==4.11.1
 blessed==1.19.1
 certifi==2022.5.18.1
@@ -12,12 +13,12 @@ Flask-WTF==1.0.1
 futures==3.0.5
 fuzzywuzzy==0.18.0
 greenlet==1.1.2
-h11==0.9.0
+h11==0.12.0
 h2==3.2.0
 hpack==3.0.0
 hstspreload==2021.12.1
-httpcore==0.9.1
-httpx==0.13.3
+httpcore==0.15.0
+httpx==0.23.0
 hyperframe==5.2.0
 idna==2.10
 importlib-metadata==4.11.4
