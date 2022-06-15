@@ -17,6 +17,7 @@ for i in range(32):
 app = Flask(__name__)
 app.config.from_object(Config)
 app.config['SECRET_KEY'] = random_string
+app.config['SESSION_COOKIE_SECURE'] = False
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
