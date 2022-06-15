@@ -16,7 +16,7 @@ import requests
 
 def translate_html(path, lang):
 
-    page_html = requests.get(f"http://127.0.0.1:5000/{path}")
+    page_html = requests.get(f"http://wittypedia.herokuapp.com/{path}")
     page_html_text = page_html.text
     soup = BeautifulSoup(page_html_text, "html.parser")
     # nice_html = soup.prettify()
