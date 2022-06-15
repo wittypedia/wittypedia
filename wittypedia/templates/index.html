@@ -8,7 +8,6 @@
 <body>
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
-    {{ form.csrf_token }}
     <p>
         {{ form.wiki_topic.label }}<br>
         {{ form.wiki_topic(size=32) }}

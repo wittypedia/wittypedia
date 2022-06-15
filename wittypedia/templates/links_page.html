@@ -3,7 +3,6 @@
 {% block content %}
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
-    {{ form.csrf_token }}
     <p>
         {{ form.linksearch.label }}<br>
         {{ form.linksearch(size=32) }}
