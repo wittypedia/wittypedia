@@ -2,6 +2,7 @@ from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_wtf.csrf import CSRFProtect
 import logging
 from logging.handlers import RotatingFileHandler
 import random
@@ -19,6 +20,7 @@ app.config['SECRET_KEY'] = random_string
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+csrf = CSRFProtect(app)
 # run flask db migrate to make database changes
 # run flask db upgrade to apply database changes
 # flask db downgrade undoes the last migration
