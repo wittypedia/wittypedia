@@ -48,7 +48,7 @@ def randomize_topic():
         try:
             link = wikipedia.page(i).url
         except:
-            pass
+            continue
 
         response = requests.get(link)
 
