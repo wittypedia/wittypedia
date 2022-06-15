@@ -7,7 +7,7 @@
 <!-- <h1>Sign In</h1> -->
 <body>
 <form action="" method="post" novalidate>
-    {{ form.hidden_tag() }}
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
     <p>
         {{ form.wiki_topic.label }}<br>
         {{ form.wiki_topic(size=32) }}

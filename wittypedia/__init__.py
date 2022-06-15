@@ -21,10 +21,11 @@ app.config['SESSION_COOKIE_SECURE'] = False
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-csrf = CSRFProtect(app)
 # run flask db migrate to make database changes
 # run flask db upgrade to apply database changes
 # flask db downgrade undoes the last migration
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 from wittypedia import routes, models, errors
 
