@@ -14,5 +14,5 @@ def internal_error(error):
     return render_template('500.html'), 500
 
 @app.errorhandler(CSRFError)
-def handle_csrf_error():
-    return render_template("csrf.html")
+def handle_csrf_error(error):
+    return render_template("csrf.html"), 404
