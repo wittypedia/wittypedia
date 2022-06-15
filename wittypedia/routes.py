@@ -18,7 +18,7 @@ from wittypedia.models import *
 
 
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/index')
+# @app.route('/index')
 def index():
     form = TopicForm()
 

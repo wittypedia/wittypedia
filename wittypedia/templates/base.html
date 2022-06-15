@@ -7,8 +7,8 @@
 
 <body>
   <!-- <div>Home: <a href="/index">Home</a></div> -->
+  <p><a href="/">Home</a></p>
   <hr>
-  {% block content %}{% endblock %}
   <p>
     View links in
     <a href="/lang_en{{ url_for(request.endpoint, **request.view_args) }}"> <b>English </b></a> &nbsp;
@@ -20,6 +20,7 @@
     <a href="/lang_kn{{ url_for(request.endpoint, **request.view_args) }}"> <b>ಕನ್ನಡ</b> </a>
     <!-- Bengali, Kannada, Tamil, Gujarati, Punjabi -->
   </p>
+  {% block content %}{% endblock %}
 </body>
 
 </html>

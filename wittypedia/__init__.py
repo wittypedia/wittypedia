@@ -2,7 +2,7 @@ from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_wtf.csrf import CSRFProtect
+# from flask_wtf.csrf import CSRFProtect
 import logging
 from logging.handlers import RotatingFileHandler
 import random
@@ -24,10 +24,10 @@ migrate = Migrate(app, db)
 # run flask db migrate to make database changes
 # run flask db upgrade to apply database changes
 # flask db downgrade undoes the last migration
-csrf = CSRFProtect()
-csrf.init_app(app)
+# csrf = CSRFProtect()
+# csrf.init_app(app)
 
-app.config['WTF_CSRF_SECRET_KEY'] = os.urandom(32)
+# app.config['WTF_CSRF_SECRET_KEY'] = os.urandom(32)
 
 from wittypedia import routes, models, errors
 

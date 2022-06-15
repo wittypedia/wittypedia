@@ -2,7 +2,7 @@
 
 {% block content %}
 <form action="" method="post" novalidate>
-    {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
     <p>
         {{ form.linksearch.label }}<br>
         {{ form.linksearch(size=32) }}
@@ -15,6 +15,6 @@
         <a href="/show_images_{{ nice_link }}{{ url_for(request.endpoint, **request.view_args) }}">Load Images</a>
     {% endfor %}
 {% else %}
-<p>Sorry, no links found!</p>
+<p>Sorry, no links found! Try reloading the page once</p>
 {% endif %}
 {% endblock %}
