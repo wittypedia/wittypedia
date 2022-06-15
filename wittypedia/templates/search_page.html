@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for index, search_result_text, search_result in search_results %}
+<p>
+    {{ index }}&nbsp;&nbsp;<a href="{{ search_result }}">{{ search_result_text }}</a>
+    <a href="/{{ search_result_text }}"><input type="button" value="Submit Link"></a>
+        
+</p>
+{% endfor %}
+{% endblock %}

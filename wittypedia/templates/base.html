@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to Wittypedia</title>
+</head>
+
+<body>
+  <!-- <div>Home: <a href="/index">Home</a></div> -->
+  <hr>
+  {% block content %}{% endblock %}
+  <p>
+    View links in
+    <a href="/lang_en{{ url_for(request.endpoint, **request.view_args) }}"> <b>English </b></a> &nbsp;
+    <a href="/lang_hi{{ url_for(request.endpoint, **request.view_args) }}"> <b>हिन्दी </b></a> &nbsp;
+    <a href="/lang_bn{{ url_for(request.endpoint, **request.view_args) }}"> <b>বাংলা </b> </a>&nbsp;
+    <a href="/lang_pa{{ url_for(request.endpoint, **request.view_args) }}"> <b> ਪੰਜਾਬੀ </b></a>&nbsp;
+    <a href="/lang_gu{{ url_for(request.endpoint, **request.view_args) }}"> <b>ગુજરાતી </b></a>&nbsp;
+    <a href="/lang_ta{{ url_for(request.endpoint, **request.view_args) }}"> <b>தமிழ் </b></a>&nbsp;
+    <a href="/lang_kn{{ url_for(request.endpoint, **request.view_args) }}"> <b>ಕನ್ನಡ</b> </a>
+    <!-- Bengali, Kannada, Tamil, Gujarati, Punjabi -->
+  </p>
+</body>
+
+</html>

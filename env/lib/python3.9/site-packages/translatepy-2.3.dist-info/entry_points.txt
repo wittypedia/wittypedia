@@ -1,0 +1,3 @@
+[console_scripts]
+translatepy = translatepy.__main__:main
+

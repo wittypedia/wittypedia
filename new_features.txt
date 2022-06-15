@@ -1,0 +1,4 @@
+1. images
+5. download button (download a wikipedia page)
+7. history of all searches
+8. flashed messages

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.linksearch.label }}<br>
+        {{ form.linksearch(size=32) }}
+    </p>
+    <p>{{ form.submit_linksearch() }}</p>
+</form>
+{% if links_list %}
+    {% for index, nice_link, url in links_list %}
+        <p>{{ index }}&nbsp;&nbsp;<a href="{{ url }}">{{ nice_link }}</a></p>
+        <a href="/show_images_{{ nice_link }}{{ url_for(request.endpoint, **request.view_args) }}">Load Images</a>
+    {% endfor %}
+{% else %}
+<p>Sorry, no links found!</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to Wittypedia</title>
+</head>
+<!-- <h1>Sign In</h1> -->
+<body>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.wiki_topic.label }}<br>
+        {{ form.wiki_topic(size=32) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+<p>
+  <a href="/random"><input type="button" value="I'm feeling lucky"></a>
+</p>
+</body>
