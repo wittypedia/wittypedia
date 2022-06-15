@@ -4,19 +4,19 @@ from bs4 import BeautifulSoup
 from translatepy.translators.bing import BingTranslate
 
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util import Retry
+# from requests.adapters import HTTPAdapter
+# from urllib3.util import Retry
 
-session = requests.Session()
-retry = Retry(connect=5, backoff_factor=0.5)
-adapter = HTTPAdapter(max_retries=retry)
-session.mount('http://', adapter)
-session.mount('https://', adapter)
+# session = requests.Session()
+# retry = Retry(connect=5, backoff_factor=0.5)
+# adapter = HTTPAdapter(max_retries=retry)
+# session.mount('http://', adapter)
+# session.mount('https://', adapter)
 
 
 def translate_html(path, lang):
 
-    page_html = session.get(f"http://127.0.0.1:5000/{path}")
+    page_html = requests.get(f"http://127.0.0.1:5000/{path}")
     page_html_text = page_html.text
     soup = BeautifulSoup(page_html_text, "html.parser")
     # nice_html = soup.prettify()
