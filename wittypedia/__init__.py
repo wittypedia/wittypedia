@@ -27,6 +27,8 @@ migrate = Migrate(app, db)
 csrf = CSRFProtect()
 csrf.init_app(app)
 
+app.config['WTF_CSRF_SECRET_KEY'] = os.urandom(32)
+
 from wittypedia import routes, models, errors
 
 if not app.debug:
