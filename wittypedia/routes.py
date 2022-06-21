@@ -1,10 +1,7 @@
 # external libraries :-
-import os
-import pickle
-import requests
-
+from flaskext.markdown import Markdown
 import urllib.parse
-from flask import redirect, render_template, request
+from flask import flash, redirect, render_template, request
 # from googletrans import Translator
 
 # our own libraries
@@ -30,7 +27,7 @@ def index():
             return redirect(f"/search/{urllib.parse.quote(data)}")
     if form.errors != {}:
         for err_msg in form.errors.values():
-            print(err_msg)
+            flash(*err_msg, category="danger")
 
     return render_template("index.html", form=form)
 
@@ -49,21 +46,22 @@ def search(wiki_topic):
     return render_template("search_page.html", search_results=sendable_results)
 
 
-@app.route("/<wiki_page_name>", methods=['GET', 'POST'])
-def about_page(wiki_page_name):
+@app.route("/get_links/<wiki_page_name>", methods=['GET', 'POST'])
+def get_links_page(wiki_page_name):
 
     final_list = []
     form = LinkSearchForm()
-
-    is_cached = Link.query.filter_by(wiki_topic=wiki_page_name).first()
-
-    if is_cached:
-        final_list = is_cached.wiki_links
 
     useless = Link.query.filter_by(wiki_topic="favicon.ico").first()
     if useless:
         Link.query.filter_by(wiki_topic="favicon.ico").delete()
         db.session.commit()
+
+    is_cached = Link.query.filter_by(wiki_topic=wiki_page_name).first()
+
+    if is_cached:
+        final_list = is_cached.wiki_links
+        flash(f"Links list for {wiki_page_name} loaded from database cache!", category = "success")
 
     # if f"{wiki_page_name}.dat" in os.listdir("wiki_files/"):
     #     if not wiki_page_name.startswith("favicon"):
@@ -81,6 +79,8 @@ def about_page(wiki_page_name):
         new_link_added = Link(wiki_topic=wiki_page_name, wiki_links=final_list)
         db.session.add(new_link_added)
         db.session.commit()
+
+        flash(f"{wiki_page_name} added to database!", category = "success")
 
     sendable_links = wiki_links_fmt(final_list)
 
@@ -109,7 +109,8 @@ def languages(path, language):
 @app.route("/random", methods=["GET", "POST"])
 def random_page():
     rng_topic = randomize_topic()
-    return redirect(f"/{rng_topic}")
+    flash(f"{rng_topic} scraped", category="success")
+    return redirect(f"/get_links/{rng_topic}")
 
 @app.route("/show_images_<wiki_topic>/<path:path>", methods = ["GET", "POST"])
 def image(wiki_topic, path):
@@ -119,3 +120,18 @@ def image(wiki_topic, path):
         formatted.append((i + 1, wiki_topic, j))
 
     return render_template("images.html", images = formatted)
+
+@app.route("/about_page")
+def about_page():
+    mkd_text = """
+## Welcome to Wittypedia, the Wikipedia Research Accelerator
+### Features
+1. View all links on a Wikipedia page instantly.
+1. View all images on a Wikipedia page instantly.
+1. Translates to 7 Indian languages.
+### Made by
+1. Suketu Patni
+1. Tanav Singh
+1. Arnav Dash Choudhury
+"""
+    return render_template("about_page.html", mkd_text = mkd_text)

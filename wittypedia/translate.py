@@ -22,7 +22,7 @@ def translate_html(path, lang):
     # nice_html = soup.prettify()
     # gs = Goslate()
     bingtranslator = BingTranslate()
-    for i in soup.find_all("a")[7:]:
+    for i in soup.find_all("a")[10:]:
         if i.text:
             i.string = bingtranslator.translate(
                 text=i.text, destination_language=lang).result

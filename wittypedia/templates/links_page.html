@@ -12,7 +12,7 @@
 {% if links_list %}
     {% for index, nice_link, url in links_list %}
         <p>{{ index }}&nbsp;&nbsp;<a href="{{ url }}">{{ nice_link }}</a></p>
-        <a href="/show_images_{{ nice_link }}{{ url_for(request.endpoint, **request.view_args) }}">Load Images</a>
+        <p><a href="/show_images_{{ nice_link }}{{ url_for(request.endpoint, **request.view_args) }}">Load Images</a></p>
     {% endfor %}
 {% else %}
 <p>Sorry, no links found! Try reloading the page once</p>

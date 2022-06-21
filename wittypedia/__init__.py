@@ -7,6 +7,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import random
 import os
+from flaskext.markdown import Markdown
 
 random_string = ""
 alnums = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
@@ -24,6 +25,7 @@ migrate = Migrate(app, db)
 # run flask db migrate to make database changes
 # run flask db upgrade to apply database changes
 # flask db downgrade undoes the last migration
+Markdown(app)
 # csrf = CSRFProtect()
 # csrf.init_app(app)
 

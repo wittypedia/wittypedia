@@ -1,6 +1,6 @@
 # any helper functions in logic and constants are defined here
 import urllib.parse
-from urllib import response
+# from urllib import response
 import requests
 import wikipedia
 
