@@ -9,11 +9,22 @@
     </p>
     <p>{{ form.submit_linksearch() }}</p>
 </form>
+
 {% if links_list %}
-    {% for index, nice_link, url in links_list %}
-        <p>{{ index }}&nbsp;&nbsp;<a href="{{ url }}">{{ nice_link }}</a></p>
-        <p><a href="/show_images_{{ nice_link }}{{ url_for(request.endpoint, **request.view_args) }}">Load Images</a></p>
-    {% endfor %}
+    <table class = "content-table" align="center">
+        <tr>
+            <th>Sr. No.</th>
+            <th>Link</th>
+            <th>Images</th>
+        </tr>
+        {% for index, nice_link, url in links_list %}
+            <tr>
+                <td>{{ index }}</td>
+                <td><a href="{{ url }}">{{ nice_link }}</a></td>
+                <td><a href="/show_images_{{ nice_link }}{{ url_for(request.endpoint, **request.view_args) }}">Load Images</a></td>
+            </tr>
+        {% endfor %}
+    </table>
 {% else %}
 <p>Sorry, no links found! Try reloading the page once</p>
 {% endif %}

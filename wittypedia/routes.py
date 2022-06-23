@@ -129,6 +129,7 @@ def about_page():
 1. View all links on a Wikipedia page instantly.
 1. View all images on a Wikipedia page instantly.
 1. Translates to 7 Indian languages.
+1. Implements caching, so repeated search results load faster.
 ### Made by
 1. Suketu Patni
 1. Tanav Singh

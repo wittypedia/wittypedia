@@ -3,6 +3,39 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>{% block title %}{% endblock %}</title>
+    <style>
+        .content-table{
+            
+            margin: 30px 50;
+            font-size: 1.0em;
+            min-width: 200px;
+            background-color: rgb(235, 236, 150);
+            table-layout: fixed;
+    
+            border-radius: 5px 5px 0 0;
+            text-align: center;
+           
+        }
+        
+        .content-table thead tr{
+          background-color:yellow;
+          color:black;
+          text-align: left;
+    
+    
+        }
+        .content-table th,
+        .content-table td{
+          border: 1px solid gold;
+          padding: 20px 25px;
+    
+        }
+        
+        .content-table tbody tr:nth-of-type(even){
+          background-color: rgb(172, 231, 182);
+        }
+        
+    </style>
 </head>
 <body style="margin-left: 20px;">
     {% with messages = get_flashed_messages(with_categories=true) %}
