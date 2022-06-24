@@ -7,3 +7,8 @@ in `.flaskenv`. Otherwise, the default mode is debug mode.<br>
 Once the mode is set, run <br>
 `flask run`<br>
 and enjoy! <br>
+
+Authors:
+- ADC
+- Tanav
+- Suketu
